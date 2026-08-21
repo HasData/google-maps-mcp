@@ -1,0 +1,11 @@
+{
+  "name": "@hasdata/google-maps-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Configuration and documentation for the HasData Google Maps MCP server",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/HasData/google-maps-mcp.git" },
+  "homepage": "https://hasdata.com/apis/google-maps-search-api",
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" }
+}
