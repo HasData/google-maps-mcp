@@ -32,7 +32,7 @@ https://mcp.hasdata.com/api/mcp?apis=google_maps
 
 ## What you need
 
-An MCP client that speaks streamable HTTP with custom headers. A HasData API key from the [dashboard](https://app.hasdata.com/sign-up?utm_source=github&utm_medium=syndication&utm_campaign=google-maps-mcp), free to create with no card, and the trial covers about 200 calls at the 5-credit rate. Nothing else. This is a remote server. There is no package to install, no container to run, and no Google Cloud project or API key anywhere in the flow.
+An MCP client that speaks streamable HTTP with custom headers. A HasData API key from the [dashboard](https://app.hasdata.com/sign-up?utm_source=github&utm_medium=syndication&utm_campaign=google-maps-mcp), free to create with no card, and the trial covers about 200 calls at the 5-credit rate. Nothing else. This is a remote server, so the simplest path is a URL and a header, with no container to run and no Google Cloud project or API key anywhere in the flow. A stdio-only client can use the `@hasdata/google-maps-mcp` (npm) or `hasdata-google-maps-mcp` (PyPI) launcher instead.
 
 ## Quick start
 
@@ -59,7 +59,7 @@ claude mcp add --transport http google-maps "https://mcp.hasdata.com/api/mcp?api
 <details>
 <summary><b>Claude Desktop</b></summary>
 
-Claude Desktop loads only local (stdio) servers from its config file, so a remote server is reached through the `mcp-remote` bridge. Node has to be on the machine.
+Claude Desktop loads only local (stdio) servers from its config file, so it reaches a remote server through a stdio launcher. The `@hasdata/google-maps-mcp` package is that launcher, and it reads the key from the environment.
 
 `claude_desktop_config.json`:
 
@@ -68,19 +68,28 @@ Claude Desktop loads only local (stdio) servers from its config file, so a remot
   "mcpServers": {
     "google-maps": {
       "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote",
-        "https://mcp.hasdata.com/api/mcp?apis=google_maps",
-        "--header",
-        "x-api-key:HASDATA_API_KEY"
-      ]
+      "args": ["-y", "@hasdata/google-maps-mcp"],
+      "env": { "HASDATA_API_KEY": "YOUR_KEY" }
     }
   }
 }
 ```
 
-The `x-api-key:` value carries no space after the colon. Claude Desktop passes the argument without a shell, and a space splits the header. A client with OAuth support can instead add the URL as a custom connector and skip the bridge.
+Python instead of Node? Swap the launcher for the PyPI package, which `uvx` runs without a manual install:
+
+```json
+{
+  "mcpServers": {
+    "google-maps": {
+      "command": "uvx",
+      "args": ["hasdata-google-maps-mcp"],
+      "env": { "HASDATA_API_KEY": "YOUR_KEY" }
+    }
+  }
+}
+```
+
+A client with OAuth support can instead add the URL as a custom connector and skip the launcher.
 
 </details>
 
