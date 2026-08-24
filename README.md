@@ -1,11 +1,14 @@
 # Google Maps MCP Server
 
+<!-- mcp-name: com.hasdata/google-maps -->
+
 A hosted Model Context Protocol (MCP) server that gives Claude, Cursor, Windsurf and any other MCP client six read-only Google Maps tools. Search places, read a place in full, pull its reviews, photos and posts, and walk a single reviewer's history, all as structured JSON, with no Google Cloud project and no billing to enable.
 
 ```
 https://mcp.hasdata.com/api/mcp?apis=google_maps
 ```
 
+[![Glama score](https://glama.ai/mcp/servers/HasData/google-maps-mcp/badges/score.svg)](https://glama.ai/mcp/servers/HasData/google-maps-mcp)
 [![tool contract](https://github.com/HasData/google-maps-mcp/actions/workflows/contract.yml/badge.svg)](https://github.com/HasData/google-maps-mcp/actions/workflows/contract.yml)
 [![MCP](https://img.shields.io/badge/MCP-remote%20%7C%20streamable%20HTTP-6366f1?style=flat-square)](https://modelcontextprotocol.io)
 [![Tools](https://img.shields.io/badge/tools-6-10b981?style=flat-square)](#tools)
