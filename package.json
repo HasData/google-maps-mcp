@@ -1,16 +1,41 @@
 {
   "name": "@hasdata/google-maps-mcp",
   "mcpName": "com.hasdata/google-maps",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for Google Maps through HasData's hosted API: place search, place details, reviews, photos, posts and contributor history. No Google Cloud project.",
   "type": "module",
-  "bin": { "hasdata-google-maps-mcp": "index.mjs" },
-  "files": ["index.mjs", "README.md", "LICENSE"],
-  "scripts": { "test": "node --test" },
-  "dependencies": { "mcp-remote": "^0.1.43" },
-  "engines": { "node": ">=18" },
+  "bin": {
+    "hasdata-google-maps-mcp": "index.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "mcp-remote": "^0.1.43"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "license": "MIT",
-  "repository": { "type": "git", "url": "https://github.com/HasData/google-maps-mcp.git" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HasData/google-maps-mcp.git"
+  },
   "homepage": "https://hasdata.com/apis/google-maps-search-api",
-  "keywords": ["mcp", "google-maps", "google-maps-mcp", "maps", "places", "reviews", "model-context-protocol", "hasdata", "scraper"]
+  "keywords": [
+    "mcp",
+    "google-maps",
+    "google-maps-mcp",
+    "maps",
+    "places",
+    "reviews",
+    "model-context-protocol",
+    "hasdata",
+    "scraper"
+  ]
 }

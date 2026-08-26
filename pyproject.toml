@@ -1,6 +1,6 @@
 [project]
 name = "hasdata-google-maps-mcp"
-version = "1.0.0"
+version = "1.0.1"
 description = "MCP server for Google Maps through HasData's hosted API. No Google Cloud project."
 readme = "README.md"
 requires-python = ">=3.10"
