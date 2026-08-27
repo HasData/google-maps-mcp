@@ -3,7 +3,7 @@
   "name": "com.hasdata/google-maps",
   "title": "HasData Google Maps",
   "description": "Google Maps places, reviews, contributor history, photos and posts as JSON. No Google Cloud.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "websiteUrl": "https://hasdata.com/apis/google-maps-search-api",
   "repository": {
     "url": "https://github.com/HasData/google-maps-mcp",
@@ -27,7 +27,7 @@
     {
       "registryType": "npm",
       "identifier": "@hasdata/google-maps-mcp",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "transport": {
         "type": "stdio"
       },
@@ -43,7 +43,7 @@
     {
       "registryType": "pypi",
       "identifier": "hasdata-google-maps-mcp",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "runtimeHint": "uvx",
       "transport": {
         "type": "stdio"
