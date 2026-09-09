@@ -4,6 +4,8 @@
 
 A hosted Model Context Protocol (MCP) server that gives Claude, Cursor, Windsurf and any other MCP client six read-only Google Maps tools. Search places, read a place in full, pull its reviews, photos and posts, and walk a single reviewer's history, all as structured JSON, with no Google Cloud project and no billing to enable.
 
+**1,000 free credits every month, no card required**, which is 200 calls at the 5-credit rate.
+
 ```
 https://mcp.hasdata.com/api/mcp?apis=google_maps
 ```
@@ -386,11 +388,11 @@ Results that carry data also carry a `requestMetadata.id` worth quoting in suppo
 
 Search, place details, reviews, contributor reviews and photos cost **5 credits per successful call**. Posts cost **10**. Response size does not change the price. A full page of reviews costs the same as a page with one.
 
-The free trial is **1,000 credits over 30 days with no card**, which is 200 calls at the 5-credit rate. After that an active account keeps getting 100 credits topped up each day whenever its balance drops below 100, so a low-volume agent runs on the free tier indefinitely.
+The free tier is **1,000 credits every month with no card**, which is 200 calls at the 5-credit rate. It renews with the billing cycle, so a low-volume agent runs on the free tier indefinitely.
 
 Paid plans start at **$49 a month** for 200,000 credits, which is 40,000 five-credit calls. The price per credit falls with volume, and current numbers live on the [pricing page](https://hasdata.com/prices?utm_source=github&utm_medium=syndication&utm_campaign=google-maps-mcp).
 
-Your plan also sets concurrency. The free trial allows 1 request at a time, Startup 15, Business 30, Growth 50, and the high-volume plans run from 200 to 1,500. Concurrency is the only throttle. There is no separate requests-per-minute cap, and the trial is not slowed or trimmed in any other way. Handle the overflow case defensively in anything unattended, because an agent that fans out across places will reach the ceiling before you do.
+Your plan also sets concurrency. The free tier allows 1 request at a time, Startup 15, Business 30, Growth 50, and the high-volume plans run from 200 to 1,500. Concurrency is the only throttle. There is no separate requests-per-minute cap, and the trial is not slowed or trimmed in any other way. Handle the overflow case defensively in anything unattended, because an agent that fans out across places will reach the ceiling before you do.
 
 Paging costs a call each time. Reviews come about ten to a page, so a hundred reviews is roughly ten calls and 50 credits, while photos come twenty to a page. The trial goes a long way before you feel it.
 
