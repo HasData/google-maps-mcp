@@ -36,7 +36,7 @@ https://mcp.hasdata.com/api/mcp?apis=google_maps
 
 ## What you need
 
-An MCP client that speaks streamable HTTP with custom headers. A HasData API key from the [dashboard](https://app.hasdata.com/sign-up?utm_source=github&utm_medium=syndication&utm_campaign=google-maps-mcp), free to create with no card, and the trial covers about 200 calls at the 5-credit rate. Nothing else. This is a remote server, so the simplest path is a URL and a header, with no container to run and no Google Cloud project or API key anywhere in the flow. A stdio-only client can use the `@hasdata/google-maps-mcp` (npm) or `hasdata-google-maps-mcp` (PyPI) launcher instead.
+An MCP client that speaks streamable HTTP with custom headers. A HasData API key from the [dashboard](https://app.hasdata.com/sign-up?utm_source=github&utm_medium=syndication&utm_campaign=google-maps-mcp), free to create with no card, and the free tier covers about 200 calls a month at the 5-credit rate. Nothing else. This is a remote server, so the simplest path is a URL and a header, with no container to run and no Google Cloud project or API key anywhere in the flow. A stdio-only client can use the `@hasdata/google-maps-mcp` (npm) or `hasdata-google-maps-mcp` (PyPI) launcher instead.
 
 ## Quick start
 
@@ -392,9 +392,9 @@ The free tier is **1,000 credits every month with no card**, which is 200 calls 
 
 Paid plans start at **$49 a month** for 200,000 credits, which is 40,000 five-credit calls. The price per credit falls with volume, and current numbers live on the [pricing page](https://hasdata.com/prices?utm_source=github&utm_medium=syndication&utm_campaign=google-maps-mcp).
 
-Your plan also sets concurrency. The free tier allows 1 request at a time, Startup 15, Business 30, Growth 50, and the high-volume plans run from 200 to 1,500. Concurrency is the only throttle. There is no separate requests-per-minute cap, and the trial is not slowed or trimmed in any other way. Handle the overflow case defensively in anything unattended, because an agent that fans out across places will reach the ceiling before you do.
+Your plan also sets concurrency. The free tier allows 1 request at a time, Startup 15, Business 30, Growth 50, and the high-volume plans run from 200 to 1,500. Concurrency is the only throttle. There is no separate requests-per-minute cap, and the free tier is not slowed or trimmed in any other way. Handle the overflow case defensively in anything unattended, because an agent that fans out across places will reach the ceiling before you do.
 
-Paging costs a call each time. Reviews come about ten to a page, so a hundred reviews is roughly ten calls and 50 credits, while photos come twenty to a page. The trial goes a long way before you feel it.
+Paging costs a call each time. Reviews come about ten to a page, so a hundred reviews is roughly ten calls and 50 credits, while photos come twenty to a page. The free tier goes a long way before you feel it.
 
 ## Tool selection
 
