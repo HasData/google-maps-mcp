@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "hasdata-google-maps-mcp",
+  "version": "1.0.1",
+  "description": "Google Maps MCP server for Cursor. Place search and place details, reviews, photos, posts and contributor history, as structured JSON, with no Google Cloud project to set up. Remote MCP server hosted by HasData, connects over streamable HTTP with your HasData API key.",
+  "author": {
+    "name": "HasData",
+    "url": "https://hasdata.com"
+  },
+  "homepage": "https://hasdata.com/apis/google-maps-search-api",
+  "repository": "https://github.com/HasData/google-maps-mcp",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "google-maps",
+    "google-maps-mcp",
+    "maps",
+    "places",
+    "reviews",
+    "model-context-protocol",
+    "hasdata",
+    "scraper"
+  ]
+}
