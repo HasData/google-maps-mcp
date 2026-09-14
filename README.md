@@ -216,14 +216,14 @@ Two things make these chains cheap. Search hands back `placeId` and `dataId` on 
 
 ## Tools
 
-| Tool | Credits | What it returns |
-| :--- | :--- | :--- |
-| `hasdata_google_maps_contributor_reviews_getMapReviews` | 5 | Per-review rating, text, date, place name, place address, placeId, photos, and owner responses |
-| `hasdata_google_maps_photos_getMapPhotos` | 5 | Each photo with image URL, thumbnail, upload date, uploader, and photoId |
-| `hasdata_google_maps_place_getPlaceDetails` | 5 | Name, address, coordinates, phone, website, categories, hours, rating, review count, price level, photos, popular times, attributes/amenities, plus_code, and map URL |
-| `hasdata_google_maps_posts_getMapPosts` | 10 | Per-post title, description, image, posted_at, link, and source/business name |
-| `hasdata_google_maps_reviews_getMapReviews` | 5 | Per-review author name and profile link, star rating, text, published/relative date, likes count, owner response, attached photos, and local-guide flag |
-| `hasdata_google_maps_search_performMapSearch` | 5 | The local pack list with placeId, name, address, coordinates, rating, review count, price level, categories, phone, website, hours, and thumbnail |
+| Tool | What it returns |
+| --- | --- |
+| `hasdata_google_maps_contributor_reviews_getMapReviews` | Per-review rating, text, date, place name, place address, placeId, photos, and owner responses. 5 credits a call |
+| `hasdata_google_maps_photos_getMapPhotos` | Each photo with image URL, thumbnail, upload date, uploader, and photoId. 5 credits a call |
+| `hasdata_google_maps_place_getPlaceDetails` | Name, address, coordinates, phone, website, categories, hours, rating, review count, price level, photos, popular times, attributes/amenities, plus_code, and map URL. 5 credits a call |
+| `hasdata_google_maps_posts_getMapPosts` | Per-post title, description, image, posted_at, link, and source/business name. 10 credits a call |
+| `hasdata_google_maps_reviews_getMapReviews` | Per-review author name and profile link, star rating, text, published/relative date, likes count, owner response, attached photos, and local-guide flag. 5 credits a call |
+| `hasdata_google_maps_search_performMapSearch` | The local pack list with placeId, name, address, coordinates, rating, review count, price level, categories, phone, website, hours, and thumbnail. 5 credits a call |
 
 Six tools, all read-only. Samples below are trimmed from real calls, and the numbers in them move as places gain reviews. Read them as shapes. Each tool name links to its endpoint reference.
 
