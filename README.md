@@ -216,6 +216,15 @@ Two things make these chains cheap. Search hands back `placeId` and `dataId` on 
 
 ## Tools
 
+| Tool | Credits | What it returns |
+| :--- | :--- | :--- |
+| `hasdata_google_maps_contributor_reviews_getMapReviews` | 5 | Per-review rating, text, date, place name, place address, placeId, photos, and owner responses |
+| `hasdata_google_maps_photos_getMapPhotos` | 5 | Each photo with image URL, thumbnail, upload date, uploader, and photoId |
+| `hasdata_google_maps_place_getPlaceDetails` | 5 | Name, address, coordinates, phone, website, categories, hours, rating, review count, price level, photos, popular times, attributes/amenities, plus_code, and map URL |
+| `hasdata_google_maps_posts_getMapPosts` | 10 | Per-post title, description, image, posted_at, link, and source/business name |
+| `hasdata_google_maps_reviews_getMapReviews` | 5 | Per-review author name and profile link, star rating, text, published/relative date, likes count, owner response, attached photos, and local-guide flag |
+| `hasdata_google_maps_search_performMapSearch` | 5 | The local pack list with placeId, name, address, coordinates, rating, review count, price level, categories, phone, website, hours, and thumbnail |
+
 Six tools, all read-only. Samples below are trimmed from real calls, and the numbers in them move as places gain reviews. Read them as shapes. Each tool name links to its endpoint reference.
 
 The samples are the payload, not the whole response. A `tools/call` result carries one text block, and that text is itself JSON holding `url`, `status`, `text` and `json`, with the scraped data under `json`. From a raw JSON-RPC response the path is `result.content[0].text`, parsed, then `.json`. A chat client unwraps that for you and code talking to the endpoint directly does not.
