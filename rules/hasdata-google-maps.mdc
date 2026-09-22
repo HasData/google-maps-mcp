@@ -5,7 +5,7 @@ alwaysApply: false
 
 # Google Maps through HasData
 
-Six tools, and five of them need a place you already found. Start with `google_maps_search_performMapSearch`, which takes `q` and optionally `ll` for the map centre, then carry the identifiers it returns.
+Six tools, and five of them need a place you already found. Start with `hasdata_google_maps_search_performMapSearch`, which takes `q` and optionally `ll` for the map centre, then carry the identifiers it returns.
 
 ## Which identifier
 
