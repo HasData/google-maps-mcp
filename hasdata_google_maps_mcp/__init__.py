@@ -7,7 +7,7 @@ import os
 import sys
 import subprocess
 
-URL = "https://mcp.hasdata.com/api/mcp?apis=google_maps"
+URL = "https://mcp.hasdata.com/mcp?apis=google_maps"
 
 
 def main() -> None:

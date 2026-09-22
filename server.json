@@ -12,7 +12,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://mcp.hasdata.com/api/mcp?apis=google_maps",
+      "url": "https://mcp.hasdata.com/mcp?apis=google_maps",
       "headers": [
         {
           "name": "x-api-key",

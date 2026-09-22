@@ -7,7 +7,7 @@ A hosted Model Context Protocol (MCP) server that gives Claude, Cursor, Windsurf
 **1,000 free credits every month, no card required**, which is 200 calls at the 5-credit rate.
 
 ```
-https://mcp.hasdata.com/api/mcp?apis=google_maps
+https://mcp.hasdata.com/mcp?apis=google_maps
 ```
 
 [![Glama score](https://glama.ai/mcp/servers/HasData/google-maps-mcp/badges/score.svg)](https://glama.ai/mcp/servers/HasData/google-maps-mcp)
@@ -42,7 +42,7 @@ An MCP client that speaks streamable HTTP with custom headers. A HasData API key
 
 | | |
 | :--- | :--- |
-| URL | `https://mcp.hasdata.com/api/mcp?apis=google_maps` |
+| URL | `https://mcp.hasdata.com/mcp?apis=google_maps` |
 | Transport | HTTP, streamable |
 | Auth header | `x-api-key: HASDATA_API_KEY` |
 
@@ -54,7 +54,7 @@ Clients with OAuth support can add the same URL as a connector and sign in witho
 <summary><b>Claude Code</b></summary>
 
 ```bash
-claude mcp add --transport http google-maps "https://mcp.hasdata.com/api/mcp?apis=google_maps" \
+claude mcp add --transport http google-maps "https://mcp.hasdata.com/mcp?apis=google_maps" \
   --header "x-api-key: HASDATA_API_KEY"
 ```
 
@@ -106,7 +106,7 @@ A client with OAuth support can instead add the URL as a custom connector and sk
 {
   "mcpServers": {
     "google-maps": {
-      "url": "https://mcp.hasdata.com/api/mcp?apis=google_maps",
+      "url": "https://mcp.hasdata.com/mcp?apis=google_maps",
       "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
@@ -124,7 +124,7 @@ A client with OAuth support can instead add the URL as a custom connector and sk
 {
   "mcpServers": {
     "google-maps": {
-      "serverUrl": "https://mcp.hasdata.com/api/mcp?apis=google_maps",
+      "serverUrl": "https://mcp.hasdata.com/mcp?apis=google_maps",
       "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
@@ -140,7 +140,7 @@ A client with OAuth support can instead add the URL as a custom connector and sk
 {
   "mcpServers": {
     "google-maps": {
-      "url": "https://mcp.hasdata.com/api/mcp?apis=google_maps",
+      "url": "https://mcp.hasdata.com/mcp?apis=google_maps",
       "type": "streamableHttp",
       "headers": { "x-api-key": "HASDATA_API_KEY" },
       "disabled": false
@@ -161,7 +161,7 @@ A client with OAuth support can instead add the URL as a custom connector and sk
   "servers": {
     "google-maps": {
       "type": "http",
-      "url": "https://mcp.hasdata.com/api/mcp?apis=google_maps",
+      "url": "https://mcp.hasdata.com/mcp?apis=google_maps",
       "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
@@ -179,7 +179,7 @@ A client with OAuth support can instead add the URL as a custom connector and sk
 {
   "mcpServers": {
     "google-maps": {
-      "httpUrl": "https://mcp.hasdata.com/api/mcp?apis=google_maps",
+      "httpUrl": "https://mcp.hasdata.com/mcp?apis=google_maps",
       "headers": { "x-api-key": "HASDATA_API_KEY" }
     }
   }
