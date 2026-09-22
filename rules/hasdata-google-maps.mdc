@@ -1,0 +1,22 @@
+---
+description: How to pull Google Maps places, reviews, photos and posts through the HasData MCP server
+alwaysApply: false
+---
+
+# Google Maps through HasData
+
+Six tools, and five of them need a place you already found. Start with `google_maps_search_performMapSearch`, which takes `q` and optionally `ll` for the map centre, then carry the identifiers it returns.
+
+## Which identifier
+
+Place details take `placeId`. Reviews, photos and posts take `placeId` or `dataId`, and sending neither returns a 422 naming both. Contributor reviews are a different axis: they take `contributorId` and return everything one person wrote, which is how you check whether a reviewer is real.
+
+## The search is the map, not a directory
+
+`q` behaves like the Maps search box, so `coffee in Austin` works and a bare category plus a separate city field does not. `ll` pins the centre when the query alone drifts, and `gl` with `hl` set the country and language of the answer.
+
+## Reading the payload
+
+An empty `posts` array is real data: most listings post nothing. A place id that does not resolve is a clean error with `requestMetadata.status` set to `error`, so tell those two apart before you report "nothing found".
+
+Reviews page with `nextPageToken` and sort with `sortBy`. Pulling every page of a busy restaurant costs real credits, so take the newest page and say how many reviews the summary rests on.
