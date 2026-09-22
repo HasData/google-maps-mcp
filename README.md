@@ -399,9 +399,9 @@ Search, place details, reviews, contributor reviews and photos cost **5 credits 
 
 The free tier is **1,000 credits every month with no card**, which is 200 calls at the 5-credit rate. It renews with the billing cycle, so a low-volume agent runs on the free tier indefinitely.
 
-Paid plans start at **$49 a month** for 200,000 credits, which is 40,000 five-credit calls. The price per credit falls with volume, and current numbers live on the [pricing page](https://hasdata.com/prices?utm_source=github&utm_medium=syndication&utm_campaign=google-maps-mcp).
+Paid plans start at **$59 a month** for 200,000 credits, which is 40,000 five-credit calls. The price per credit falls with volume, and current numbers live on the [pricing page](https://hasdata.com/prices?utm_source=github&utm_medium=syndication&utm_campaign=google-maps-mcp).
 
-Your plan also sets concurrency. The free tier allows 1 request at a time, Startup 15, Business 30, Growth 50, and the high-volume plans run from 200 to 1,500. Concurrency is the only throttle. There is no separate requests-per-minute cap, and the free tier is not slowed or trimmed in any other way. Handle the overflow case defensively in anything unattended, because an agent that fans out across places will reach the ceiling before you do.
+Your plan also sets concurrency. The free tier allows 1 request at a time, Startup 5, Basic 15, and the Growth tiers run from 50 to 500. Concurrency is the only throttle. There is no separate requests-per-minute cap, and the free tier is not slowed or trimmed in any other way. Handle the overflow case defensively in anything unattended, because an agent that fans out across places will reach the ceiling before you do.
 
 Paging costs a call each time. Reviews come about ten to a page, so a hundred reviews is roughly ten calls and 50 credits, while photos come twenty to a page. The free tier goes a long way before you feel it.
 
