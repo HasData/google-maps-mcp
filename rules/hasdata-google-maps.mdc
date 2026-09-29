@@ -15,6 +15,14 @@ Place details take `placeId`. Reviews, photos and posts take `placeId` or `dataI
 
 `q` behaves like the Maps search box, so `coffee in Austin` works and a bare category plus a separate city field does not. `ll` pins the centre when the query alone drifts, and `gl` with `hl` set the country and language of the answer.
 
+## Two answer shapes, and the key says which
+
+A category query returns `localResults`, an array of about twenty rows carrying `position`, `title`, `placeId`, `dataId`, `phone`, `address`, `website`, `workingHours`, `openState`, `rating`, `reviews`, `gpsCoordinates` and more. That is usually enough to answer a contact or ranking question without opening a single place.
+
+A query that Maps resolves to one entity returns `placeResults` instead, a single object rather than an array, and `localResults` is absent. Phrasing alone decides it, since `coffee in Austin` gave the array while `coffee austin texas` gave the object. Test for the key before iterating, because code that reaches straight for `localResults` finds nothing and reports an empty area.
+
+There is no empty answer here. A nonsense keyword still returned one unrelated company in `placeResults` rather than a miss, so judge whether the result matches what was asked instead of treating any response as a hit.
+
 ## Reading the payload
 
 An empty `posts` array is real data: most listings post nothing. A place id that does not resolve is a clean error with `requestMetadata.status` set to `error`, so tell those two apart before you report "nothing found".
