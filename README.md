@@ -194,23 +194,23 @@ Each of these is one tool call unless the count says otherwise.
 
 > Search Google Maps for coffee near downtown Seattle and give me the top ten with their rating, review count and website.
 
-*One call, 5 credits. Search returns the places with `placeId` and `dataId` already attached, and the follow-ups below need no lookup step.*
+*One call, 10 credits. Search returns the places with `placeId` and `dataId` already attached, and the follow-ups below need no lookup step.*
 
 > Pull the full details for `ChIJAb0KE0RrkFQRuI4X0By5Mcw`: hours, service options, price level and the menu link.
 
-*One call, 5 credits.*
+*One call, 10 credits.*
 
 > Read the latest reviews for that place, sorted newest first, and tell me which topics come up most.
 
-*One call, 5 credits. The response carries Google's own topic clusters with a mention count each, and the ranking is in the data.*
+*One call, 10 credits. The response carries Google's own topic clusters with a mention count each, and the ranking is in the data.*
 
 > Take the author of the top review and list every other place they have reviewed, with the rating they left.
 
-*One call, 5 credits. A review carries its author's `contributorId`, which is exactly what the contributor tool takes.*
+*One call, 10 credits. A review carries its author's `contributorId`, which is exactly what the contributor tool takes.*
 
 > Get the photo feed for that place and the business's recent posts.
 
-*Two calls. Photos cost 5 credits, posts cost 10.*
+*Two calls. Photos and posts cost 10 credits each.*
 
 Two things make these chains cheap. Search hands back `placeId` and `dataId` on every result, and the detail, review, photo and post calls need no separate resolve step. And a review carries the author's `contributorId`, which turns "who left this review" into a one-call jump to that person's whole history.
 
@@ -218,12 +218,12 @@ Two things make these chains cheap. Search hands back `placeId` and `dataId` on 
 
 | Tool | What it returns |
 | --- | --- |
-| `hasdata_google_maps_contributor_reviews_getMapReviews` | Per-review rating, text, date, place name, place address, placeId, photos, and owner responses. 5 credits a call |
-| `hasdata_google_maps_photos_getMapPhotos` | Each photo with image URL, thumbnail, upload date, uploader, and photoId. 5 credits a call |
-| `hasdata_google_maps_place_getPlaceDetails` | Name, address, coordinates, phone, website, categories, hours, rating, review count, price level, photos, popular times, attributes/amenities, plus_code, and map URL. 5 credits a call |
+| `hasdata_google_maps_contributor_reviews_getMapReviews` | Per-review rating, text, date, place name, place address, placeId, photos, and owner responses. 10 credits a call |
+| `hasdata_google_maps_photos_getMapPhotos` | Each photo with image URL, thumbnail, upload date, uploader, and photoId. 10 credits a call |
+| `hasdata_google_maps_place_getPlaceDetails` | Name, address, coordinates, phone, website, categories, hours, rating, review count, price level, photos, popular times, attributes/amenities, plus_code, and map URL. 10 credits a call |
 | `hasdata_google_maps_posts_getMapPosts` | Per-post title, description, image, posted_at, link, and source/business name. 10 credits a call |
-| `hasdata_google_maps_reviews_getMapReviews` | Per-review author name and profile link, star rating, text, published/relative date, likes count, owner response, attached photos, and local-guide flag. 5 credits a call |
-| `hasdata_google_maps_search_performMapSearch` | The local pack list with placeId, name, address, coordinates, rating, review count, price level, categories, phone, website, hours, and thumbnail. 5 credits a call |
+| `hasdata_google_maps_reviews_getMapReviews` | Per-review author name and profile link, star rating, text, published/relative date, likes count, owner response, attached photos, and local-guide flag. 10 credits a call |
+| `hasdata_google_maps_search_performMapSearch` | The local pack list with placeId, name, address, coordinates, rating, review count, price level, categories, phone, website, hours, and thumbnail. 10 credits a call |
 
 Six tools, all read-only. Samples below are trimmed from real calls, and the numbers in them move as places gain reviews. Read them as shapes. Each tool name links to its endpoint reference.
 
@@ -395,7 +395,7 @@ Results that carry data also carry a `requestMetadata.id` worth quoting in suppo
 
 ## Pricing, free tier and limits
 
-Search, place details, reviews, contributor reviews and photos cost **5 credits per successful call**. Posts cost **10**. Response size does not change the price. A full page of reviews costs the same as a page with one.
+Search, place details, reviews, contributor reviews and photos cost **10 credits per successful call**. Posts cost **10**. Response size does not change the price. A full page of reviews costs the same as a page with one.
 
 The free tier is **1,000 credits every month with no card**, which is 200 calls at the 5-credit rate. It renews with the billing cycle, so a low-volume agent runs on the free tier indefinitely.
 
@@ -403,7 +403,7 @@ Paid plans start at **$59 a month** for 200,000 credits, which is 40,000 five-cr
 
 Your plan also sets concurrency. The free tier allows 1 request at a time, Startup 5, Basic 15, and the Growth tiers run from 50 to 500. Concurrency is the only throttle. There is no separate requests-per-minute cap, and the free tier is not slowed or trimmed in any other way. Handle the overflow case defensively in anything unattended, because an agent that fans out across places will reach the ceiling before you do.
 
-Paging costs a call each time. Reviews come about ten to a page, so a hundred reviews is roughly ten calls and 50 credits, while photos come twenty to a page. The free tier goes a long way before you feel it.
+Paging costs a call each time. Reviews come about ten to a page, so a hundred reviews is roughly ten calls and 100 credits, while photos come twenty to a page. The free tier goes a long way before you feel it.
 
 ## Tool selection
 
@@ -427,7 +427,7 @@ This server reads what Google Maps shows a visitor, and returns it parsed. There
 | A reviewer's history | Not available | Yes, by `contributorId` |
 | Photos and posts | Limited | Photo feed and the business's posts |
 | Output | JSON per the Platform schema | JSON parsed from what a visitor sees |
-| Cost | Google's per-call pricing on your bill | 5 credits a call, 10 for posts |
+| Cost | Google's per-call pricing on your bill | 10 credits a call, 10 for posts |
 
 The decision comes down to two rows. If you need directions or to turn an address into coordinates, this server cannot help you and the Platform can. If you need the reviews behind the first few, or who a reviewer is across every place they rated, the Platform cannot help you and this can.
 
@@ -505,7 +505,7 @@ On PowerShell:
 $env:HASDATA_API_KEY = "your_key_here"; npm test
 ```
 
-The last check makes a real call and costs 5 credits, which is the price of a canary that can fail for the right reason. Listing tools succeeds with any non-empty key, and a test that only lists tools stays green with a revoked one.
+The last check makes a real call and costs 10 credits, which is the price of a canary that can fail for the right reason. Listing tools succeeds with any non-empty key, and a test that only lists tools stays green with a revoked one.
 
 ## Contributing
 
