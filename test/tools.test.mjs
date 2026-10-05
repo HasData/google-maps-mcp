@@ -31,7 +31,8 @@ const PARAMS = {
     [REVIEWS]: { placeId: false, dataId: false, sortBy: false, topicId: false, hl: false, nextPageToken: false },
     [CONTRIBUTOR]: { contributorId: true, num: false, gl: false, hl: false, nextPageToken: false },
     [PHOTOS]: { placeId: false, dataId: false, categoryId: false, hl: false, nextPageToken: false },
-    [POSTS]: { placeId: false, dataId: false, hl: false, nextPageToken: false },
+    // Posts no longer takes nextPageToken upstream, unlike reviews, photos and contributor reviews.
+    [POSTS]: { placeId: false, dataId: false, hl: false },
 };
 
 // A streamable HTTP body arrives either as plain JSON or as server-sent events. One SSE event
