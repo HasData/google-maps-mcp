@@ -369,9 +369,8 @@ The business's own posts and updates on its Google listing.
 | `placeId` | string | | The place. Either `placeId` or `dataId` has to be present |
 | `dataId` | string | | The place as a `dataId` instead |
 | `hl` | string | | Language code |
-| `nextPageToken` | string | | Token from the previous response |
 
-Returns a `posts` array.
+Returns a `posts` array. This tool does not page. Reviews and photos take a `nextPageToken`, this one does not, and it returns what the listing shows.
 
 > Most places post nothing, so an empty `posts` array is the common case. Read the length before assuming a post is there.
 
