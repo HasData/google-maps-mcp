@@ -14,6 +14,7 @@ https://mcp.hasdata.com/mcp?apis=google_maps
 [![tool contract](https://github.com/HasData/google-maps-mcp/actions/workflows/contract.yml/badge.svg)](https://github.com/HasData/google-maps-mcp/actions/workflows/contract.yml)
 [![MCP](https://img.shields.io/badge/MCP-remote%20%7C%20streamable%20HTTP-6366f1?style=flat-square)](https://modelcontextprotocol.io)
 [![Tools](https://img.shields.io/badge/tools-6-10b981?style=flat-square)](#tools)
+- [Prompts and resources](#prompts-and-resources)
 [![npm](https://img.shields.io/npm/v/@hasdata/google-maps-mcp?style=flat-square&logo=npm&label=npm&color=cb3837)](https://www.npmjs.com/package/@hasdata/google-maps-mcp)
 [![PyPI](https://img.shields.io/pypi/v/hasdata-google-maps-mcp?style=flat-square&logo=pypi&logoColor=white&label=PyPI&color=3775a9)](https://pypi.org/project/hasdata-google-maps-mcp/)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
@@ -373,6 +374,26 @@ The business's own posts and updates on its Google listing.
 Returns a `posts` array. This tool does not page. Reviews and photos take a `nextPageToken`, this one does not, and it returns what the listing shows.
 
 > Most places post nothing, so an empty `posts` array is the common case. Read the length before assuming a post is there.
+
+## Prompts and resources
+
+The server ships 2 prompts, ready-made workflows a client can offer instead of making the user compose a tool call.
+
+| Prompt | What it does |
+| --- | --- |
+| `google_maps_search` | Find businesses and places on Google Maps. |
+| `google_maps_reviews` | Summarize what reviewers say about a place. |
+
+Alongside them the server exposes 4 resources, one per parameter whose accepted values are a fixed list. Reading one is cheaper than learning the vocabulary from a rejected call, and it costs no credits. Each URI is `hasdata://google_maps/<parameter>`.
+
+| Parameter | Values | What it selects |
+| --- | ---: | --- |
+| `hl` | 159 | The two-letter language code for the language you want to use for the search. |
+| `gl` | 245 | The two-letter country code for the country you want to limit the search to. |
+| `domain` | 195 | Google domain to use. Default is google.com. |
+| `sortBy` | 4 | Parameter used for sorting and refining results. |
+
+Both lists are served without an API key, so a client can read them before a user has signed up.
 
 ## Errors and failure paths
 
