@@ -4,7 +4,7 @@
 
 A hosted Model Context Protocol (MCP) server that gives Claude, Cursor, Windsurf and any other MCP client six read-only Google Maps tools. Search places, read a place in full, pull its reviews, photos and posts, and walk a single reviewer's history, all as structured JSON, with no Google Cloud project and no billing to enable.
 
-**1,000 free credits every month, no card required**, which is 200 calls at the 5-credit rate.
+**1,000 free credits every month, no card required**, which is 100 calls at the 10-credit rate.
 
 ```
 https://mcp.hasdata.com/mcp?apis=google_maps
@@ -37,7 +37,7 @@ https://mcp.hasdata.com/mcp?apis=google_maps
 
 ## What you need
 
-An MCP client that speaks streamable HTTP with custom headers. A HasData API key from the [dashboard](https://app.hasdata.com/sign-up?utm_source=github&utm_medium=syndication&utm_campaign=google-maps-mcp), free to create with no card, and the free tier covers about 200 calls a month at the 5-credit rate. Nothing else. This is a remote server, so the simplest path is a URL and a header, with no container to run and no Google Cloud project or API key anywhere in the flow. A stdio-only client can use the `@hasdata/google-maps-mcp` (npm) or `hasdata-google-maps-mcp` (PyPI) launcher instead.
+An MCP client that speaks streamable HTTP with custom headers. A HasData API key from the [dashboard](https://app.hasdata.com/sign-up?utm_source=github&utm_medium=syndication&utm_campaign=google-maps-mcp), free to create with no card, and the free tier covers about 100 calls a month at the 10-credit rate. Nothing else. This is a remote server, so the simplest path is a URL and a header, with no container to run and no Google Cloud project or API key anywhere in the flow. A stdio-only client can use the `@hasdata/google-maps-mcp` (npm) or `hasdata-google-maps-mcp` (PyPI) launcher instead.
 
 ## Quick start
 
@@ -417,7 +417,7 @@ Results that carry data also carry a `requestMetadata.id` worth quoting in suppo
 
 Search, place details, reviews, contributor reviews and photos cost **10 credits per successful call**. Posts cost **10**. Response size does not change the price. A full page of reviews costs the same as a page with one.
 
-The free tier is **1,000 credits every month with no card**, which is 200 calls at the 5-credit rate. It renews with the billing cycle, so a low-volume agent runs on the free tier indefinitely.
+The free tier is **1,000 credits every month with no card**, which is 100 calls at the 10-credit rate. It renews with the billing cycle, so a low-volume agent runs on the free tier indefinitely.
 
 Paid plans start at **$59 a month** for 200,000 credits, which is 40,000 five-credit calls. The price per credit falls with volume, and current numbers live on the [pricing page](https://hasdata.com/prices?utm_source=github&utm_medium=syndication&utm_campaign=google-maps-mcp).
 
