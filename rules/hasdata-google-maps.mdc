@@ -28,3 +28,9 @@ There is no empty answer here. A nonsense keyword still returned one unrelated c
 An empty `posts` array is real data: most listings post nothing. A place id that does not resolve is a clean error with `requestMetadata.status` set to `error`, so tell those two apart before you report "nothing found".
 
 Reviews page with `nextPageToken` and sort with `sortBy`. Pulling every page of a busy restaurant costs real credits, so take the newest page and say how many reviews the summary rests on.
+
+## Prompts and resources
+
+The server also serves resources that spell out the accepted values of every parameter that takes a fixed list, each one at `hasdata://google_maps/<parameter>`. Reading one spends no credits and makes no upstream request, which beats discovering the vocabulary from a rejected call. Listing them needs no API key either, so a client can read them before the user has connected an account.
+
+Ready-made prompts cover the usual workflows. Offer one of those before composing a tool call by hand.
